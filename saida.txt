@@ -1,27 +1,27 @@
 Teste = [abacaba] 
- * Aceito 
- ---------------- 
+ * Rejeitado 
+ ------------------ 
 
 Teste = [aba] 
  * Aceito 
- ---------------- 
+ ------------------ 
 
 Teste = [abb] 
  * Rejeitado 
- ---------------- 
+ ------------------ 
 
 Teste = [aba] 
  * Aceito 
- ---------------- 
+ ------------------ 
 
 Teste = [abb] 
  * Rejeitado 
- ---------------- 
+ ------------------ 
 
 Teste = [abacaba] 
- * Aceito 
- ---------------- 
+ * Rejeitado 
+ ------------------ 
 
 Teste = [abb] 
  * Rejeitado 
- ---------------- 
+ ------------------ 

@@ -25,6 +25,7 @@ Automaton loadAutomaton(String filePath) {
   final List<int> finalStates = List<int>.from(jsonData['final']);
 
   final List<Transition> transitions = [];
+
   for (final transitionData in jsonData['transitions']) {
     final transition = Transition(
       transitionData['from'],
@@ -32,13 +33,6 @@ Automaton loadAutomaton(String filePath) {
       transitionData['to'],
     );
     transitions.add(transition);
-  }
-
-  print('Initial: $initial');
-  print('Final states: $finalStates');
-  print('Transitions:');
-  for (final transition in transitions) {
-    print('  From: ${transition.from}, Read: ${transition.read}, To: ${transition.to}');
   }
 
   return Automaton(initial, finalStates, transitions);
@@ -53,9 +47,6 @@ bool processInputString(Automaton automaton, String inputString) {
       orElse: () => Transition(currentState, null, -1),
     );
 
-    print(
-        'Current state: $currentState, Symbol: $symbol, Transition: From ${transition.from}, Read: ${transition.read}, To: ${transition.to}');
-
     if (transition.to == -1) {
       return false;
     }
@@ -67,9 +58,9 @@ bool processInputString(Automaton automaton, String inputString) {
 }
 
 void main() {
-  final diagramPath = 'diagrama.json'; // Substitua pelo caminho correto do arquivo de diagrama JSON
-  final testsPath = 'testes.txt'; // Substitua pelo caminho correto do arquivo de testes
-  final outputPath = 'saida.txt'; // Substitua pelo caminho correto do arquivo de saída
+  final diagramPath = 'diagrama.json'; // Path para o diuagrama de testes
+  final testsPath = 'testes.txt'; // Path para arquivo de teste
+  final outputPath = 'saida.txt'; // Path para arquivo de saida
 
   final automaton = loadAutomaton(diagramPath);
 
@@ -78,6 +69,7 @@ void main() {
 
   for (final inputString in tests) {
     final result = processInputString(automaton, inputString);
+
     output.add('Teste = [$inputString] \n ${result ? '* Aceito' : '* Rejeitado'} \n ------------------ \n');
   }
 
