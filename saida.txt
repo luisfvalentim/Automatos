@@ -1,0 +1,5 @@
+Teste = abacaba: Rejeitado 
+
+
+Teste = aba: Aceito 
+
