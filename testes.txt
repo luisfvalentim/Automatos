@@ -1,5 +1,0 @@
-ab
-abcd
-aacd
-acbd
-abc

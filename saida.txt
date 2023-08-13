@@ -1,14 +1,0 @@
-Teste = ab: Aceito 
-
-
-Teste = abcd: Aceito 
-
-
-Teste = aacd: Rejeitado 
-
-
-Teste = acbd: Rejeitado 
-
-
-Teste = abc: Aceito 
-
