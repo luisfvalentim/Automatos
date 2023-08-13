@@ -20,10 +20,10 @@ class Automaton {
 Automaton loadAutomaton(String filePath) {
   final data = File(filePath).readAsStringSync();
   final jsonData = json.decode(data);
-  
+
   final int initial = jsonData['initial'];
   final List<int> finalStates = List<int>.from(jsonData['final']);
-  
+
   final List<Transition> transitions = [];
   for (final transitionData in jsonData['transitions']) {
     final transition = Transition(
@@ -33,17 +33,16 @@ Automaton loadAutomaton(String filePath) {
     );
     transitions.add(transition);
   }
-  
+
   print('Initial: $initial');
   print('Final states: $finalStates');
   print('Transitions:');
   for (final transition in transitions) {
     print('  From: ${transition.from}, Read: ${transition.read}, To: ${transition.to}');
   }
-  
+
   return Automaton(initial, finalStates, transitions);
 }
-
 
 bool processInputString(Automaton automaton, String inputString) {
   int currentState = automaton.initial;
@@ -54,8 +53,9 @@ bool processInputString(Automaton automaton, String inputString) {
       orElse: () => Transition(currentState, null, -1),
     );
 
-    print('Current state: $currentState, Symbol: $symbol, Transition: From ${transition.from}, Read: ${transition.read}, To: ${transition.to}');
-    
+    print(
+        'Current state: $currentState, Symbol: $symbol, Transition: From ${transition.from}, Read: ${transition.read}, To: ${transition.to}');
+
     if (transition.to == -1) {
       return false;
     }
@@ -66,12 +66,11 @@ bool processInputString(Automaton automaton, String inputString) {
   return automaton.finalStates.contains(currentState);
 }
 
-
 void main() {
   final diagramPath = 'diagrama.json'; // Substitua pelo caminho correto do arquivo de diagrama JSON
   final testsPath = 'testes.txt'; // Substitua pelo caminho correto do arquivo de testes
   final outputPath = 'saida.txt'; // Substitua pelo caminho correto do arquivo de saída
-  
+
   final automaton = loadAutomaton(diagramPath);
 
   final tests = File(testsPath).readAsStringSync().split('\n').where((line) => line.trim().isNotEmpty);
@@ -79,10 +78,8 @@ void main() {
 
   for (final inputString in tests) {
     final result = processInputString(automaton, inputString);
-    output.add('Teste = $inputString: ${result ? 'Aceito' : 'Rejeitado'} \n\n');
+    output.add('Teste = [$inputString] \n ${result ? '* Aceito' : '* Rejeitado'} \n ------------------ \n');
   }
 
   File(outputPath).writeAsStringSync(output.join('\n'));
 }
-
-
