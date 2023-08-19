@@ -1,0 +1,27 @@
+Teste = [abacaba] 
+ * Rejeitado 
+ ------------------ 
+
+Teste = [aba] 
+ * Rejeitado 
+ ------------------ 
+
+Teste = [abb] 
+ * Rejeitado 
+ ------------------ 
+
+Teste = [aba] 
+ * Rejeitado 
+ ------------------ 
+
+Teste = [abb] 
+ * Rejeitado 
+ ------------------ 
+
+Teste = [abacaba] 
+ * Rejeitado 
+ ------------------ 
+
+Teste = [abb] 
+ * Rejeitado 
+ ------------------ 

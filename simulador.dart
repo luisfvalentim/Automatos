@@ -68,8 +68,8 @@ bool processInputString(Automaton automaton, String inputString) {
 
 void main() {
   final diagramPath = 'diagrama.json'; // Substitua pelo caminho correto do arquivo de diagrama JSON
-  final testsPath = 'testes.txt'; // Substitua pelo caminho correto do arquivo de testes
-  final outputPath = 'saida.txt'; // Substitua pelo caminho correto do arquivo de saída
+  final testsPath = 'testes.csv'; // Substitua pelo caminho correto do arquivo de testes
+  final outputPath = 'saida.csv'; // Substitua pelo caminho correto do arquivo de saída
 
   final automaton = loadAutomaton(diagramPath);
 
