@@ -81,7 +81,7 @@ void main() {
     DateTime endTime = DateTime.now();
     Duration responseTime = endTime.difference(startTime);
     output.add(
-        '$inputString ; ${result ? '1' : '0'} ;  ${(responseTime.inMicroseconds)} microsegundos');
+        '$inputString;${result ? '1' : '0'};${(responseTime.inMicroseconds)} microsegundos');
   }
 
   File(outputPath).writeAsStringSync(output.join('\n'));
