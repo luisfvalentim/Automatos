@@ -29,6 +29,8 @@ Entre com o diagrama que deseja trabalhar.
 exemplo:
 
 diagrama.json 
+
+'''geojson
 {
   "initial": 0,
   "final": [2, 4],
@@ -41,6 +43,7 @@ diagrama.json
     {"from": 4, "read": "b", "to": 4}
   ]
 }
+'''
 
 Agora indique a entrada e saida em um arquivo chamado testes.csv, 'aceito' sendo 1 e 'rejeitado' sendo 0.
 
