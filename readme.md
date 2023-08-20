@@ -22,6 +22,10 @@ O programa é composto pelas seguintes partes principais:
 
 ### Exemplo de Uso
 
+Linguagem Dart
+
+SDK: Dart SDK version: 3.0.6 (stable) (Tue Jul 11 18:49:07 2023 +0000) on "windows_x64"
+
 O exemplo a seguir demonstra como utilizar o programa:
 
 Entre com o diagrama que deseja trabalhar.
