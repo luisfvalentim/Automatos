@@ -64,8 +64,8 @@ bool processInputString(Automaton automaton, String inputString) {
 
 void main() {
   final diagramPath = 'diagrama.json';
-  final testsPath = 'testes.csv';
-  final outputPath = 'saida.csv';
+  final testsPath = 'arquivo_de_testes.in.csv';
+  final outputPath = 'arquivo_de_saida.out.csv';
 
   final automaton = loadAutomaton(diagramPath);
 
