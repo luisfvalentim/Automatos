@@ -30,7 +30,7 @@ exemplo:
 
 diagrama.json 
 
-```geojson
+```
 {
   "initial": 0,
   "final": [2, 4],
