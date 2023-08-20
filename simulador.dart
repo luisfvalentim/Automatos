@@ -38,10 +38,15 @@ Automaton loadAutomaton(String filePath) {
   return Automaton(initial, finalStates, transitions);
 }
 
+DateTime inicio = DateTime.now();
 bool processInputString(Automaton automaton, String inputString) {
   int currentState = automaton.initial;
 
-  for (final symbol in inputString.split('')) {
+  for (final symbol in inputString
+      .replaceAll(';', '')
+      .replaceAll('0', '')
+      .replaceAll('1', '')
+      .split('')) {
     final transition = automaton.transitions.firstWhere(
       (t) => t.from == currentState && (t.read == symbol || t.read == null),
       orElse: () => Transition(currentState, null, -1),
@@ -58,19 +63,25 @@ bool processInputString(Automaton automaton, String inputString) {
 }
 
 void main() {
-  final diagramPath = 'diagrama.json'; // Substitua pelo caminho correto do arquivo de diagrama JSON
-  final testsPath = 'testes.csv'; // Substitua pelo caminho correto do arquivo de testes
-  final outputPath = 'saida.csv'; // Substitua pelo caminho correto do arquivo de saída
+  final diagramPath = 'diagrama.json';
+  final testsPath = 'testes.csv';
+  final outputPath = 'saida.csv';
 
   final automaton = loadAutomaton(diagramPath);
 
-  final tests = File(testsPath).readAsStringSync().split('\n').where((line) => line.trim().isNotEmpty);
+  final tests = File(testsPath)
+      .readAsStringSync()
+      .split('\n')
+      .where((line) => line.trim().isNotEmpty);
   final output = <String>[];
 
   for (final inputString in tests) {
+    DateTime startTime = DateTime.now();
     final result = processInputString(automaton, inputString);
-
-    output.add('Teste = [$inputString] \n ${result ? '* Aceito' : '* Rejeitado'} \n ------------------ \n');
+    DateTime endTime = DateTime.now();
+    Duration responseTime = endTime.difference(startTime);
+    output.add(
+        '$inputString ; ${result ? '1' : '0'} ;  ${(responseTime.inMicroseconds)} microsegundos');
   }
 
   File(outputPath).writeAsStringSync(output.join('\n'));

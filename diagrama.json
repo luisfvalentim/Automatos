@@ -8,7 +8,7 @@
       {"from": 3, "read": "c", "to": 4},
       {"from": 4, "read": "a", "to": 5},
       {"from": 5, "read": "b", "to": 6},
-      {"from": 6, "read": "a", "to": 7}
+      {"from": 6, "read": "a", "to": 3}
     ]
   }
   
